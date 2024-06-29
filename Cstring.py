@@ -34,7 +34,7 @@ class Cstring:
             lst (list[str], optional): A list of characters to initialize the string.
                                        Defaults to None, which initializes an empty string.
         """
-        pass
+        self.lst = lst
 
     def at(self, index: int) -> str:
         """
@@ -49,7 +49,10 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range
         """
-        pass
+        try:
+            return self.lst[index]
+        except IndexError:
+            pass
 
     def string(self) -> str:
         """
@@ -58,7 +61,7 @@ class Cstring:
         Returns:
             str: The string representation.
         """
-        pass
+        return self.lst
 
     def newString(self) -> 'Cstring':
         """
@@ -67,7 +70,8 @@ class Cstring:
         Returns:
             Cstring: A new instance of Cstring with the same content.
         """
-        pass
+        self.lst_copy = lst.copy()
+        return lst_copy
 
     def append(self, char: str) -> None:
         """
@@ -76,7 +80,9 @@ class Cstring:
         Args:
             char (str): The character to append.
         """
-        pass
+        self.lst.append(char)
+        return
+
     def pop(self) -> str:
         """
         Pops and returns the first character of the Cstring.
@@ -84,13 +90,11 @@ class Cstring:
         Returns:
             str: The character that was removed from the beginning.
         """
-        pass
-
+        first_char = self.lst.pop(0)
+        return first_char
     def empty(self) -> None:
-        """
-        Empties the Cstring
-        """
-        pass
+        self.lst.clear()
+        return
 
     def length(self) -> int:
         """
@@ -99,7 +103,7 @@ class Cstring:
         Returns:
             int: The length of the string.
         """
-        pass
+        return len(self.lst)
 
     def insert(self, index: int, char) -> None:
         """
