@@ -88,8 +88,7 @@ class Cstring:
         Args:
             char (str): The character to append.
         """
-
-        return self.lst.insert(-1, char)
+        self.lst.insert(-1, char)
 
     def pop(self) -> str:
         """
