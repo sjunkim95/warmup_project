@@ -34,13 +34,21 @@ class Cstring:
             lst (list[str], optional): A list of characters to initialize the string.
                                        Defaults to None, which initializes an empty string.
         """
-        self.lst = lst
+        # initialize string here
+        '''
+        if lst is empty:
+            return
+        '''
+        if lst is None:
+            self.lst = ["\0"]
+        else:
+            self.lst = lst + ["\0"]
 
     def at(self, index: int) -> str:
         """
         Accesses the character at the specified index.
 
-        Args:
+        Args:`
             index (int): The index of the character to access.
 
         Returns:
@@ -80,8 +88,8 @@ class Cstring:
         Args:
             char (str): The character to append.
         """
-        self.lst.append(char)
-        return
+
+        return self.lst.insert(-1, char)
 
     def pop(self) -> str:
         """
