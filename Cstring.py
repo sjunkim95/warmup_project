@@ -35,7 +35,7 @@ class Cstring:
                                        Defaults to None, which initializes an empty string.
         """
 
-        if lst is None:
+        if len(lst) == 0:
             self.lst = ["\0"]
         else:
             self.lst = lst + ["\0"]
