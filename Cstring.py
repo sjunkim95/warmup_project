@@ -34,11 +34,7 @@ class Cstring:
             lst (list[str], optional): A list of characters to initialize the string.
                                        Defaults to None, which initializes an empty string.
         """
-        # initialize string here
-        '''
-        if lst is empty:
-            return
-        '''
+
         if lst is None:
             self.lst = ["\0"]
         else:
@@ -57,10 +53,16 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range
         """
+        '''
         try:
             return self.lst[index]
         except IndexError:
             pass
+        '''
+        if len(self.lst) - 1 >= index:
+            return self.lst[index]
+        else:
+            raise IndexError("Index out of valid range")
 
     def string(self) -> str:
         """
