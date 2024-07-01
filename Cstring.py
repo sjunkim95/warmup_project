@@ -89,7 +89,11 @@ class Cstring:
             char (str): The character to append.
         """
         length = len(self.lst)
-        self.lst.insert(length-1, char)
+
+        if len(char) != 1:
+            raise ValueError("Cstring must have only one character")
+        else:
+            self.lst.insert(length-1, char)
 
     def pop(self) -> str:
         """
