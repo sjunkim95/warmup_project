@@ -72,7 +72,7 @@ class Cstring:
         Returns:
             str: The string representation.
         """
-        return
+        return self.lst
 
     def newString(self) -> 'Cstring':
         """
@@ -81,8 +81,11 @@ class Cstring:
         Returns:
             Cstring: A new instance of Cstring with the same content.
         """
-        self.lst_copy = lst.copy()
-        return lst_copy
+        new_list = self.lst.copy()
+        new_Cstring = ''
+        for i in new_list:
+            new_Cstring += i
+        return new_Cstring
 
     def append(self, char: str) -> None:
         """
@@ -104,8 +107,8 @@ class Cstring:
         Returns:
             str: The character that was removed from the beginning.
         """
-        first_char = self.lst.pop(0)
-        return first_char
+       # first_char = self.lst.pop(0)
+        return self.lst.pop(0)
     def empty(self) -> None:
         self.lst.clear()
         return
@@ -130,7 +133,11 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range for insertion.
         """
-        pass
+        # self.lst.insert(len(self.lst)-1, char)
+        if len(char) != 1:
+            raise ValueError("Cstring must have only one character")
+        else:
+            self.lst.insert(index, char)
 
     def replace(self, index: int, char: str) -> None:
         """
@@ -140,7 +147,11 @@ class Cstring:
             index (int): The index of the character to replace.
             char (str): The new character to be placed at the specified index.
         """
-        pass
+        my_char = self.lst.pop(index)
+        if len(char) != 1:
+            raise ValueError("Cstring must have only one character")
+        else:
+            self.lst.insert(index, char)
 
     def strstr(self, start_index: int, end_index: int) -> 'Cstring':
         """
@@ -156,7 +167,11 @@ class Cstring:
         Raises:
             IndexError: If either index is out of range.
         """
-        pass
+        new_string = self.lst[start_index:end_index]
+        string = ''
+        for i in new_string:
+            string += str(i)
+        return string
 
     def strrchr(self, char: str) -> int:
         """
@@ -168,4 +183,9 @@ class Cstring:
         Returns:
             int: The last index of the character, or -1 if not found.
         """
-        pass
+        if len(self.lst) >= 1:
+            last_index = (len(self.lst) - 1) - self.lst[::-1].index(char)
+            return last_index
+
+        else:
+            return -1
