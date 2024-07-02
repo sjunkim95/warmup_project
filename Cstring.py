@@ -60,7 +60,7 @@ class Cstring:
         except IndexError:
             pass
         '''
-        if len(self.lst) - 1 >= index:
+        if len(self.lst) - 2 >= index:
             return self.lst[index]
         else:
             raise IndexError("Index out of valid range")
@@ -111,7 +111,8 @@ class Cstring:
         return self.lst.pop(0)
     def empty(self) -> None:
         self.lst.clear()
-        return
+        self.lst = ["\0"]
+
 
     def length(self) -> int:
         """
@@ -120,7 +121,7 @@ class Cstring:
         Returns:
             int: The length of the string.
         """
-        return len(self.lst)
+        return len(self.lst)-1
 
     def insert(self, index: int, char) -> None:
         """
