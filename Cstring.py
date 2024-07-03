@@ -179,16 +179,17 @@ class Cstring:
             IndexError: If either index is out of range.
         """
       #  new_string = self.lst[start_index:end_index]
-        string = ''
+        new_C = []
         if 0 <= start_index < end_index <= len(self.lst)-1:
             for i in range(start_index, end_index+1):
                 if i == "\0":
                     pass
                 else:
-                    string += str(i)
+                    new_C.append(i)
         else:
             raise IndexError("Index out of valid range")
-        return string
+        new_C = new_C + ["\0"]
+        return new_C
 
     def strrchr(self, char: str) -> int:
         """
