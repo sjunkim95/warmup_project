@@ -176,7 +176,10 @@ class Cstring:
         new_string = self.lst[start_index:end_index]
         string = ''
         for i in new_string:
-            string += str(i)
+            if i == "\0":
+                pass
+            else:
+                string += str(i)
         return string
 
     def strrchr(self, char: str) -> int:
