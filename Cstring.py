@@ -182,7 +182,7 @@ class Cstring:
       #  new_string = self.lst[start_index:end_index]
 
         new_C = []
-        if 0 <= start_index < end_index <= len(self.lst)-1:
+        if 0 <= start_index < end_index < len(self.lst)-1:
             for i in range(start_index, end_index+1):
                 if self.lst[i] == "\0":
                     pass
