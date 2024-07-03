@@ -60,7 +60,7 @@ class Cstring:
         except IndexError:
             pass
         '''
-        if index < 1:
+        if index < 0:
             raise IndexError("Index out of valid range")
         if len(self.lst) - 2 >= index:
             return self.lst[index]
@@ -86,7 +86,10 @@ class Cstring:
         new_list = self.lst.copy()
         new_Cstring = ''
         for i in new_list:
-            new_Cstring += i
+            if new_list == "\0":
+                pass
+            else:
+                new_Cstring += i
         return new_Cstring
 
     def append(self, char: str) -> None:
