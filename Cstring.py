@@ -34,9 +34,10 @@ class Cstring:
             lst (list[str], optional): A list of characters to initialize the string.
                                        Defaults to None, which initializes an empty string.
         """
-        self.lst = []
 
-        if len(lst) == 0:
+      #  self.lst = []
+
+        if lst is None:
             self.lst = ["\0"]
         else:
             self.lst = lst + ["\0"]
