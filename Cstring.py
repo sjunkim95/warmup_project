@@ -86,7 +86,7 @@ class Cstring:
         """
        #new_list = self.lst.copy()
         '''
-        new_Cstring =
+        new_Cs  tring =
         for i in new_list:
             if new_list == "\0":
                 pass
@@ -178,19 +178,17 @@ class Cstring:
         Raises:
             IndexError: If either index is out of range.
         """
-        new_string = self.lst[start_index:end_index]
+      #  new_string = self.lst[start_index:end_index]
         string = ''
-
-        if 0 <= start_index < end_index and start_index < end_index < len(self.lst)-1:
-            for i in new_string:
+        if 0 <= start_index < end_index <= len(self.lst)-1:
+            for i in range(start_index, end_index+1):
                 if i == "\0":
                     pass
                 else:
                     string += str(i)
-            return string
         else:
             raise IndexError("Index out of valid range")
-
+        return string
 
     def strrchr(self, char: str) -> int:
         """
