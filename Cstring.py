@@ -82,7 +82,9 @@ class Cstring:
         Returns:
             Cstring: A new instance of Cstring with the same content.
         """
+        # I have to return a Cstring-> list of char, instead of string
        #new_list = self.lst.copy()
+        #  Cstring(self.lst[start_index:end_index])
         '''
         new_Cstring =
         for i in new_list:
@@ -92,7 +94,7 @@ class Cstring:
                 new_Cstring += i
         return new_Cstring
         '''
-        new_Cstring = self.lst.copy()
+        new_Cstring = Cstring(self.lst[:])
         return new_Cstring
 
     def append(self, char: str) -> None:
