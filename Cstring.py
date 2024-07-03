@@ -180,7 +180,7 @@ class Cstring:
             IndexError: If either index is out of range.
         """
       #  new_string = self.lst[start_index:end_index]
-
+        '''
         new_C = ''
         if 0 <= start_index < end_index < len(self.lst)-1:
             for i in range(start_index, end_index+1):
@@ -192,6 +192,11 @@ class Cstring:
             raise IndexError("Index out of valid range")
         new_C = new_C + ["\0"]
         return new_C
+        '''
+        if start_index < 0 or end_index >= len(self.lst) -1 or start_index > end_index:
+            raise IndexError("Index out of valid range")
+
+        return Cstring(self.lst[start_index:end_index+1])
 
     def strrchr(self, char: str) -> int:
         """
