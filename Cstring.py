@@ -87,7 +87,7 @@ class Cstring:
         """
        #new_list = self.lst.copy()
         '''
-        new_Cs  tring =
+        new_Cstring =
         for i in new_list:
             if new_list == "\0":
                 pass
@@ -95,7 +95,7 @@ class Cstring:
                 new_Cstring += i
         return new_Cstring
         '''
-        new_Cstring = self.string()
+        new_Cstring = self.lst.copy()
         return new_Cstring
 
     def append(self, char: str) -> None:
@@ -201,8 +201,12 @@ class Cstring:
         '''
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
-
-        return Cstring(self.lst[start_index:end_index+1]+["\0"])
+        if "\0" in (self.lst[start_index:end_index+1]):
+            return (self.lst[start_index:end_index+1])
+        else:
+            return (self.lst[start_index:end_index + 1] + ["\0"])
+        return
+        #Cstring(self.lst[start_index:end_index+1]+["\0"])
 
     def strrchr(self, char: str) -> int:
         """
