@@ -175,12 +175,17 @@ class Cstring:
         """
         new_string = self.lst[start_index:end_index]
         string = ''
-        for i in new_string:
-            if i == "\0":
-                pass
-            else:
-                string += str(i)
-        return string
+
+        if 0 <= start_index < end_index and start_index < end_index < len(self.lst)-1:
+            for i in new_string:
+                if i == "\0":
+                    pass
+                else:
+                    string += str(i)
+            return string
+        else:
+            raise IndexError("Index out of valid range")
+
 
     def strrchr(self, char: str) -> int:
         """
