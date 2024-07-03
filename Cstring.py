@@ -155,7 +155,7 @@ class Cstring:
             if len(char) != 1:
                 raise ValueError("Cstring must have only one character")
             elif len(char) == 1:
-                self.lst = self.lst[:index]+char+self.lst[index:-1]
+                self.lst = self.lst[:index]+char+self.lst[index:]
 
     def replace(self, index: int, char: str) -> None:
         """
@@ -202,9 +202,9 @@ class Cstring:
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
         if "\0" in (self.lst[start_index:end_index+1]):
-            return Cstring(self.lst[start_index:end_index+1])
+            return Cstring(self.lst[start_index:end_index])
         else:
-            return Cstring(self.lst[start_index:end_index+1]+["\0"])
+            return Cstring(self.lst[start_index:end_index]+["\0"])
 
         #Cstring(self.lst[start_index:end_index+1]+["\0"])
 
