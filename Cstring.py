@@ -142,7 +142,7 @@ class Cstring:
         # self.lst.insert(len(self.lst)-1, char)
         if len(char) != 1:
             raise ValueError("Cstring must have only one character")
-        else:
+        elif len(char) == 1:
             self.lst.insert(index, char)
 
     def replace(self, index: int, char: str) -> None:
