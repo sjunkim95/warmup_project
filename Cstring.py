@@ -60,6 +60,8 @@ class Cstring:
         except IndexError:
             pass
         '''
+        if index < 1:
+            raise IndexError("Index out of valid range")
         if len(self.lst) - 2 >= index:
             return self.lst[index]
         else:
