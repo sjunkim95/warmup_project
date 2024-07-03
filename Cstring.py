@@ -74,7 +74,8 @@ class Cstring:
         Returns:
             str: The string representation.
         """
-        return ''.join(self.lst[:-1])
+        my_string = ''.join(self.lst[:-1])
+        return my_string
 
     def newString(self) -> 'Cstring':
         """
