@@ -180,13 +180,14 @@ class Cstring:
             IndexError: If either index is out of range.
         """
       #  new_string = self.lst[start_index:end_index]
+
         new_C = []
         if 0 <= start_index < end_index <= len(self.lst)-1:
             for i in range(start_index, end_index+1):
-                if i == "\0":
+                if self.lst[i] == "\0":
                     pass
                 else:
-                    new_C.append(i)
+                    new_C.append(self.lst[i])
         else:
             raise IndexError("Index out of valid range")
         new_C = new_C + ["\0"]
