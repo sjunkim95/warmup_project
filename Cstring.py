@@ -146,10 +146,16 @@ class Cstring:
             IndexError: If the index is out of the valid range for insertion.
         """
         # self.lst.insert(len(self.lst)-1, char)
-        if len(char) != 1:
-            raise ValueError("Cstring must have only one character")
-        elif len(char) == 1:
-            self.lst.insert(index, char)
+        if type(char) == str:
+            if len(char) != 1:
+                raise ValueError("Cstring must have only one character")
+            elif len(char) == 1:
+                self.lst.insert(index, char)
+        if type(char) == list:
+            if len(char) != 1:
+                raise ValueError("Cstring must have only one character")
+            elif len(char) == 1:
+                self.lst.insert(index, char[0])
 
     def replace(self, index: int, char: str) -> None:
         """
