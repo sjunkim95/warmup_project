@@ -193,7 +193,7 @@ class Cstring:
         new_C = new_C + ["\0"]
         return new_C
         '''
-        if start_index < 0 or end_index >= len(self.lst) -1 or start_index > end_index:
+        if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
 
         return Cstring(self.lst[start_index:end_index+1])
