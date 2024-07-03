@@ -84,13 +84,17 @@ class Cstring:
         Returns:
             Cstring: A new instance of Cstring with the same content.
         """
-        new_list = self.lst.copy()
-        new_Cstring = ''
+       #new_list = self.lst.copy()
+        '''
+        new_Cstring =
         for i in new_list:
             if new_list == "\0":
                 pass
             else:
                 new_Cstring += i
+        return new_Cstring
+        '''
+        new_Cstring = self.string()
         return new_Cstring
 
     def append(self, char: str) -> None:
