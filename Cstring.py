@@ -155,7 +155,7 @@ class Cstring:
             if len(char) != 1:
                 raise ValueError("Cstring must have only one character")
             elif len(char) == 1:
-                self.lst.insert(index, char[0])
+                self.lst.insert(index, char)
 
     def replace(self, index: int, char: str) -> None:
         """
@@ -202,7 +202,7 @@ class Cstring:
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
 
-        return Cstring(self.lst[start_index:end_index+1])
+        return Cstring(self.lst[start_index:end_index+1]+["\0"])
 
     def strrchr(self, char: str) -> int:
         """
