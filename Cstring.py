@@ -14,9 +14,6 @@ In C, the terminated character is "\0".
 In this Warmup project, you are required to mimic the behavior of C strings.
 """
 
-
-
-
 class Cstring:
     """
     A class to mimic a C-style string using Python list to handle characters,
@@ -201,10 +198,8 @@ class Cstring:
         '''
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
-        if "\0" in (self.lst[start_index:end_index+1]):
-            return Cstring(self.lst[start_index:end_index])
-        else:
-            return Cstring(self.lst[start_index:end_index]+["\0"])
+        return Cstring(self.lst[start_index:end_index])
+
 
         #Cstring(self.lst[start_index:end_index+1]+["\0"])
 
@@ -224,3 +219,8 @@ class Cstring:
 
         else:
             return -1
+'''
+if __name__ == "__main__":
+    c = Cstring(['h','e','l','l','o'])
+    print(c.strstr(1, 4).string())
+'''
