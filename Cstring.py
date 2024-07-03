@@ -94,7 +94,8 @@ class Cstring:
                 new_Cstring += i
         return new_Cstring
         '''
-        new_Cstring = Cstring(self.lst[:])
+        # old list contain no operator
+        new_Cstring = Cstring(self.lst[:-1])
         return new_Cstring
 
     def append(self, char: str) -> None:
