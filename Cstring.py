@@ -155,7 +155,7 @@ class Cstring:
             if len(char) != 1:
                 raise ValueError("Cstring must have only one character")
             elif len(char) == 1:
-                self.lst = self.lst[:index]+char+self.lst[index:]
+                self.lst = self.lst[:index]+char+self.lst[index:-1]
 
     def replace(self, index: int, char: str) -> None:
         """
