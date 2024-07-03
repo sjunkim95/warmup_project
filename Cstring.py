@@ -151,7 +151,7 @@ class Cstring:
         if type(char) == list:
 
             for i in range(len(char)):
-                if len(char) > 1:
+                if len(char[i]) > 1:
                     raise ValueError("Cstring must have only one character")
 
             self.lst = self.lst[:index]+char+self.lst[index:]
