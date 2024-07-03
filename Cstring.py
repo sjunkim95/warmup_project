@@ -202,10 +202,10 @@ class Cstring:
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
         if "\0" in (self.lst[start_index:end_index+1]):
-            return (self.lst[start_index:end_index+1])
+            return Cstring(self.lst[start_index:end_index+1])
         else:
-            return (self.lst[start_index:end_index + 1] + ["\0"])
-        return
+            return Cstring(self.lst[start_index:end_index+1]+["\0"])
+
         #Cstring(self.lst[start_index:end_index+1]+["\0"])
 
     def strrchr(self, char: str) -> int:
