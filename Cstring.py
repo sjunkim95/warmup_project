@@ -94,7 +94,7 @@ class Cstring:
                 new_Cstring += i
         return new_Cstring
         '''
-        # old list contain no operator
+        # input invalid index -> not as an int
         new_Cstring = Cstring(self.lst[:-1])
         return new_Cstring
 
@@ -145,14 +145,20 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range for insertion.
         """
+        if type(char) != int:
+            raise ValueError("index should be int")
+
         # self.lst.insert(len(self.lst)-1, char)
+        if index > len(self.lst) - 1:
+            raise IndexError("Index out of valid range")
+
         if type(char) == str:
             if len(char) != 1:
                 raise ValueError("Cstring must have only one character")
             elif len(char) == 1:
                 self.lst.insert(index, char)
-        if type(char) == list:
 
+        if type(char) == list:
             for i in range(len(char)):
                 if len(char[i]) > 1:
                     raise ValueError("Cstring must have only one character")
@@ -167,6 +173,8 @@ class Cstring:
             index (int): The index of the character to replace.
             char (str): The new character to be placed at the specified index.
         """
+        if index > len(self.lst) - 1:
+            raise IndexError("Index out of valid range")
         my_char = self.lst.pop(index)
         if len(char) != 1:
             raise ValueError("Cstring must have only one character")
@@ -187,20 +195,7 @@ class Cstring:
         Raises:
             IndexError: If either index is out of range.
         """
-      #  new_string = self.lst[start_index:end_index]
-        '''
-        new_C = ''
-        if 0 <= start_index < end_index < len(self.lst)-1:
-            for i in range(start_index, end_index+1):
-                if self.lst[i] == "\0":
-                    pass
-                else:
-                    new_C += self.lst[i]
-        else:
-            raise IndexError("Index out of valid range")
-        new_C = new_C + ["\0"]
-        return new_C
-        '''
+
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
         return Cstring(self.lst[start_index:end_index])
