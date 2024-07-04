@@ -145,9 +145,6 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range for insertion.
         """
-        if type(char) != int:
-            raise ValueError("index should be int")
-
         # self.lst.insert(len(self.lst)-1, char)
         if index > len(self.lst) - 1:
             raise IndexError("Index out of valid range")
