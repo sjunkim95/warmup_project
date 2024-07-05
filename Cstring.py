@@ -190,8 +190,9 @@ class Cstring:
         Raises:
             IndexError: If either index is out of range.
         """
-        if type(start_index) or type(end_index) is not int:
-            raise ValueError("Index must be an integer")
+        # why?
+     #   if type(start_index) or type(end_index) is not int:
+        #    raise ValueError("Index must be an integer")
 
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
