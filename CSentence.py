@@ -43,14 +43,15 @@ class CSentence:
         my_string = ' '
         for i in self.cstrings:
             if i is not None:
+                #my_string = ''.join(self.lst[:-1])
                 my_string += i.string()
+            my_string += ' '
         return my_string
 
-'''
+
 if __name__ == "__main__":
     c1 = Cstring(['h', 'e', 'l', 'l', 'o'])
     c2 = Cstring(['I', 'R', 'V', 'I', 'N', 'E'])
     c = CSentence([c1, c2])
     print(c.get_sentence())
 #  print(c)
-'''
