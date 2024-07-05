@@ -9,10 +9,6 @@ class CSentence:
     Attributes:
         string (list[Cstring]): A list of Cstring objects representing words in a sentence.
     """
-    '''
-    c = Cstring(['h','e','l','l','o'])
-    print(c.strstr(1, 4).string())
-    '''
 
     def __init__(self, cstrings: list[Cstring] = None):
         """
@@ -22,11 +18,8 @@ class CSentence:
             cstrings (list[Cstring], optional): A list of Cstring objects that make up the sentence.
                                                 Defaults to None, which will initialize an empty sentence.
         """
-        # self.sentence = ''
-        if cstrings is not None:
-            self.cstrings = cstrings
-        else:
-            self.cstrings = [None]
+
+        self.cstrings = cstrings if cstrings is not None else [None]
 
     def get_sentence(self) -> str:
         """
@@ -36,17 +29,15 @@ class CSentence:
             str: The full sentence constructed from the Cstring objects,
                  where each word is separated by a space.
         """
-        '''
-        c = Cstring(['h','e','l','l','o'])
-        print(c.string())
-        '''
+
         my_string = ' '.join(i.string() for i in self.cstrings if i is not None)
         return my_string
 
-
+"""
 if __name__ == "__main__":
     c1 = Cstring(['h', 'e', 'l', 'l', 'o'])
     c2 = Cstring(['I', 'R', 'V', 'I', 'N', 'E'])
     c = CSentence([c1, c2])
     print(c.get_sentence())
 #  print(c)
+"""
