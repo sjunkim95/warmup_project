@@ -32,8 +32,6 @@ class Cstring:
                                        Defaults to None, which initializes an empty string.
         """
 
-      #  self.lst = []
-
         if lst is None:
             self.lst = ["\0"]
         else:
@@ -52,14 +50,13 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range
         """
-        '''
-        try:
-            return self.lst[index]
-        except IndexError:
-            pass
-        '''
+
         if index < 0:
             raise IndexError("Index out of valid range")
+        # for extra
+        if type(index) is not int:
+            raise TypeError("Index must be an integer")
+
         if len(self.lst) - 2 >= index:
             return self.lst[index]
         else:
@@ -82,18 +79,7 @@ class Cstring:
         Returns:
             Cstring: A new instance of Cstring with the same content.
         """
-        # I have to return a Cstring-> list of char, instead of string
-       #new_list = self.lst.copy()
-        #  Cstring(self.lst[start_index:end_index])
-        '''
-        new_Cstring =
-        for i in new_list:
-            if new_list == "\0":
-                pass
-            else:
-                new_Cstring += i
-        return new_Cstring
-        '''
+
         # input invalid index -> not as an int
         new_Cstring = Cstring(self.lst[:-1])
         return new_Cstring
@@ -105,7 +91,9 @@ class Cstring:
         Args:
             char (str): The character to append.
         """
-
+        # for extra
+        if type(char) is not str:
+            raise TypeError("Character must be a string")
         if len(char) != 1:
             raise ValueError("Cstring must have only one character")
         else:
@@ -118,8 +106,9 @@ class Cstring:
         Returns:
             str: The character that was removed from the beginning.
         """
-       # first_char = self.lst.pop(0)
+
         return self.lst.pop(0)
+
     def empty(self) -> None:
         self.lst.clear()
         self.lst = ["\0"]
@@ -145,6 +134,10 @@ class Cstring:
         Raises:
             IndexError: If the index is out of the valid range for insertion.
         """
+        # for extra
+        if type(index) is not int:
+            raise TypeError("Index must be an integer")
+
         # self.lst.insert(len(self.lst)-1, char)
         if index > len(self.lst) - 1:
             raise IndexError("Index out of valid range")
@@ -170,6 +163,11 @@ class Cstring:
             index (int): The index of the character to replace.
             char (str): The new character to be placed at the specified index.
         """
+        if type(index) is not int:
+            raise TypeError("Index must be an integer")
+        if type(char) is not str:
+            raise TypeError("Cstring must be string")
+
         if index > len(self.lst) - 1:
             raise IndexError("Index out of valid range")
         my_char = self.lst.pop(index)
