@@ -213,8 +213,9 @@ class Cstring:
 
         else:
             return -1
-'''
+
+''''
 if __name__ == "__main__":
     c = Cstring(['h','e','l','l','o'])
-    print(c.strstr(1, 4).string())
+    print(c.string())
 '''
