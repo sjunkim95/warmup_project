@@ -190,6 +190,8 @@ class Cstring:
         Raises:
             IndexError: If either index is out of range.
         """
+        if type(start_index) or type(end_index) is not int:
+            raise ValueError("Index must be an integer")
 
         if not (0 <= start_index < end_index < len(self.lst)-1):
             raise IndexError("Index out of valid range")
@@ -205,6 +207,9 @@ class Cstring:
         Returns:
             int: The last index of the character, or -1 if not found.
         """
+        if type(char) is not str:
+            raise TypeError("Character must be a string")
+
         if len(self.lst) >= 1:
             last_index = (len(self.lst) - 1) - self.lst[::-1].index(char)
             return last_index
